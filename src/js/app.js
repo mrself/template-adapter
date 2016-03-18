@@ -1,24 +1,26 @@
 var Mustache = require('mustache');
 module.exports = {
-	save: function(key, val, options) {
-		simplestorage.set(key, val, options);
+	getHtml: function(templateName) {
+		var templateEl = document.getElementById(templateName + '_');
+		if (!templateEl) return false;
+		return templateEl.innerHTML;
 	},
-	set: function() {
-		this.save.apply(this, arguments);
+
+	render: function(templateName, templateVars, parse) {
+		parse = isUndf(parse) ? false : parse;
+		var template = this.getHtml(templateName);
+		if (!template) return false;
+		if (parse) {
+			Mustache.parse(template);
+		}
+		return Mustache.render(template, templateVars);
 	},
-	get: function(key, defaultval) {
-		return simplestorage.get(key, defaultval);
+
+	stringRender: function(string, data) {
+		return Mustache.render(string, data);
 	},
-	saveGroup: function(groupName, key, val) {
-		simpleStorage.set(key + groupName, val);
-	},
-	getGroup: function(groupName, key, defaultVal) {
-		return simpleStorage.get(key + groupName, defaultVal);
-	},
-	flush: function() {
-		return simpleStorage.flush();
-	},
-	size: function() {
-		return simpleStorage.storageSize();
+
+	parse: function() {
+		Mustache.parse(this.getHtml(name));
 	}
 };

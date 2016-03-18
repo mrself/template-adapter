@@ -1,6 +1,6 @@
 {
-  "name": "jstorage-adapter",
-  "version": "1.1.0",
+  "name": "template-adapter",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -29,6 +29,6 @@
     "watchify": "^3.4.0"
   },
   "dependencies": {
-    "simplestorage.js": "^0.2.1"
+    "mustache": "^2.2.1"
   }
 }
