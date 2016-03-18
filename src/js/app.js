@@ -6,13 +6,9 @@ module.exports = {
 		return templateEl.innerHTML;
 	},
 
-	render: function(templateName, templateVars, parse) {
-		parse = isUndf(parse) ? false : parse;
+	render: function(templateName, templateVars) {
 		var template = this.getHtml(templateName);
 		if (!template) return false;
-		if (parse) {
-			Mustache.parse(template);
-		}
 		return Mustache.render(template, templateVars);
 	},
 
