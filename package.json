@@ -1,0 +1,34 @@
+{
+  "name": "jstorage-adapter",
+  "version": "1.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yaroslav Vavrysh <yaruk.my@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mrself/jstorage-adapter.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.11.1",
+    "browserify": "^13.0.0",
+    "gulp": "^3.9.0",
+    "gulp-cssnano": "^2.1.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.0.4",
+    "gulp-util": "^3.0.7",
+    "gulp-watch": "^4.3.5",
+    "node-bourbon": "^4.2.3",
+    "pretty-hrtime": "^1.0.1",
+    "require-dir": "^0.3.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.4.0"
+  },
+  "dependencies": {
+    "simplestorage.js": "^0.2.1"
+  }
+}
