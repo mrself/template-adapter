@@ -9,7 +9,7 @@
   "author": "Yaroslav Vavrysh <yaruk.my@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mrself/jstorage-adapter.git"
+    "url": "https://github.com/mrself/temlate-adapter.git"
   },
   "license": "MIT",
   "devDependencies": {
