@@ -25,8 +25,8 @@ module.exports = {
 		return obj;
 	},
 
-	stringRender: function(string, data) {
-		return Mustache.render(string, data);
+	stringRender: function(string, data, partials) {
+		return Mustache.render(string, data, partials);
 	},
 
 	parse: function() {
