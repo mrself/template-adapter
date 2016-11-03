@@ -19,10 +19,9 @@ module.exports = {
 
 	getPartials: function(list) {
 		var obj = {};
-		(Array.isArray(list) ? list : [list])
-			.forEach(function(name) {
-				obj[name] = this.getHtml(name);
-			}, this);
+		[].concat(list).forEach(function(name) {
+			obj[name] = this.getHtml(name);
+		}, this);
 		return obj;
 	},
 
