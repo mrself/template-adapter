@@ -44,3 +44,7 @@ template.render('hello', {name: 'Bob', surname: 'Illych'}, 'fullName');
 ```
 
 The third parameter is a string or array of strings by which the script searches the partials.
+
+#Supported engine
+
+Currently it supports only Mustache
