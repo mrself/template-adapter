@@ -1,4 +1,5 @@
 var Mustache = require('mustache');
+
 module.exports = {
 	getHtml: function(templateName) {
 		var templateEl = document.getElementById(templateName + '_');
