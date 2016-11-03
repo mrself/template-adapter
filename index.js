@@ -31,5 +31,9 @@ module.exports = {
 
 	parse: function() {
 		Mustache.parse(this.getHtml(name));
-	}
+	},
+
+	getEngine: function() {
+		return Mustache;
+	},
 };
