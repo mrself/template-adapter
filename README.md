@@ -28,7 +28,7 @@ What if you want to include partials? No problem. Say you have such templates:
 
 ```
 <script type="text/template" id="hello_">
-Hello {{ name }}
+Hello {{> fullName }}
 </script>
 
 <script type="text/template" id="fullName_">
