@@ -4,7 +4,7 @@ module.exports = {
 	getHtml: function(templateName) {
 		var templateEl = document.getElementById(templateName + '_');
 		if (!templateEl)
-			throw new Error('Script element does not exists');
+			throw new Error('Script element does not exists for name: ' + templateName);
 		return templateEl.innerHTML;
 	},
 
