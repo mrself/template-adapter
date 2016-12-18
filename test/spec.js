@@ -28,8 +28,8 @@ afterEach(function() {
 
 describe.only('#getHtml', function() {
 
-	it ('retrun html of script by name', function() {
-		dom.make({template_: '{{variable}}'})
+	it('retrun html of script by name', function() {
+		dom.make({template_: '{{variable}}'});
 		var html = adapter.getHtml('template');
 		expect(html).to.eql('{{variable}}');
 	});
@@ -40,7 +40,7 @@ describe.only('#getHtml', function() {
 });
 
 describe('#getPartials', function() {
-	it ('return object with partial', function(done) {
+	it('return object with partial', function(done) {
 		this.make({template_: 'text'}, function() {
 			var partials = adapter.getPartials('template');
 			assert(partials.template == 'text');
@@ -50,7 +50,7 @@ describe('#getPartials', function() {
 });
 
 describe('#render', function() {
-	it ('render without data', function(done) {
+	it('render without data', function(done) {
 		this.make({template_: 'text'}, function() {
 			var html = adapter.render('template');
 			assert(html == 'text');
