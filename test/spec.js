@@ -1,36 +1,46 @@
 var chai = require('chai');
-var jsdom = require('jsdom');
+var jsdom = require('jsdom-global');
 var adapter = require('../index');
 var assert = chai.assert;
-beforeEach(function() {
-	this.make = function(obj, f) {
-		jsdom.env(this.makeHtml(obj),
-			[],
-			function(err, window) {
-				global.document = window.document;
-				f.call();
-			});
-	};
-	this.makeHtml = function(data) {
-		var html;
-		for (var k in data)
-			html += '<script id="'+ k +'">'+ data[k] +'</script>';
-		return html;
-	};
+var expect = chai.expect;
+
+before(function() {
+	global.$ = require('jquery');
 });
 
-describe('#getHtml', function() {
-	it ('retrun html of script by name', function(done) {
-		this.make({template_: '{{var}}'}, function() {
-			var html = adapter.getHtml('template');
-			assert(html == '{{var}}');
-			done();
-		});
+var dom = {
+	make: function(data) {
+		var html = this.makeHtml(data);
+		$('body').append(html);
+	},
+	makeHtml: function(data) {
+		var html = '';
+		for (var k in data)
+			html += '<script type="text/html" id="' + k + '">' + data[k] + '</script>';
+		return html;
+	}
+};
+
+afterEach(function() {
+	$('body').empty();
+});
+
+
+describe.only('#getHtml', function() {
+
+	it('retrun html of script by name', function() {
+		dom.make({template_: '{{variable}}'});
+		var html = adapter.getHtml('template');
+		expect(html).to.eql('{{variable}}');
+	});
+
+	it('throw if script element cannot be found', function() {
+		expect(adapter.getHtml.bind(adapter, 'tmpl')).to.throw();
 	});
 });
 
 describe('#getPartials', function() {
-	it ('return object with partial', function(done) {
+	it('return object with partial', function(done) {
 		this.make({template_: 'text'}, function() {
 			var partials = adapter.getPartials('template');
 			assert(partials.template == 'text');
@@ -40,7 +50,7 @@ describe('#getPartials', function() {
 });
 
 describe('#render', function() {
-	it ('render without data', function(done) {
+	it('render without data', function(done) {
 		this.make({template_: 'text'}, function() {
 			var html = adapter.render('template');
 			assert(html == 'text');

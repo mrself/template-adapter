@@ -1,6 +1,10 @@
 {
   "name": "template-adapter",
+<<<<<<< HEAD
   "version": "1.3.0",
+=======
+  "version": "1.4.0",
+>>>>>>> develop
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -15,7 +19,9 @@
   "license": "MIT",
   "devDependencies": {
     "chai": "^3.5.0",
-    "jsdom": "^9.4.1",
+    "jquery": "^2.2.4",
+    "jsdom": "^9.8.3",
+    "jsdom-global": "^2.1.0",
     "mocha": "^2.5.3"
   },
   "dependencies": {
