@@ -3,7 +3,8 @@ var Mustache = require('mustache');
 module.exports = {
 	getHtml: function(templateName) {
 		var templateEl = document.getElementById(templateName + '_');
-		if (!templateEl) return false;
+		if (!templateEl)
+			throw new Error('Script element does not exists');
 		return templateEl.innerHTML;
 	},
 
