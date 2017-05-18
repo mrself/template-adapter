@@ -20,6 +20,7 @@ module.exports = {
 
 	getPartials: function(list) {
 		var obj = {};
+		if (!list) return obj;
 		[].concat(list).forEach(function(name) {
 			obj[name] = this.getHtml(name);
 		}, this);
